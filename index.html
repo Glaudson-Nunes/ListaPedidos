@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type = "text/css" href="estilo/index.css">
+	<link rel="icon" href="imgs/iconsIni.png"/>
+	<title>Pedidos Eticos/Similar</title>
+</head>
+
+<body>
+	
+
+	<div class="container-total">
+
+	<header class="cabecalho">
+
+		<div class="logo">
+
+			<h2 class="h2logo">Repositor de Estoque <img src="imgs/icons8-adicionar-o-carrinho-de-compras-64.png" width="40px"> </h2>
+			<p>Maraial-PE</p>
+
+		</div>
+
+		<div class="menu">
+
+			<ul>
+
+				<li id = "btListaS" class="liMenu">Similares <img src = "imgs/icons8.png" width="25px">  </li>
+				<li id = "btlistaE" class="liMenu">Eticos 	<img src = "imgs/icons8.png" width="25px"></li>
+				<li id = "btCadastro" class="liMenu">Cadastrar Codigos de Barra 	<img src = "imgs/iconCod.png" width="25px"></li>
+			
+			</ul>
+
+		</div>
+
+		<div class="data">
+
+			<p class="rcbd2">data</p>
+
+		</div>
+
+	</header>
+
+	<section class="box-lista">
+
+
+	<h1>Lista de Similares</h1>
+
+	<div class="inputs">
+
+		<div class="inputs1">
+			
+			<p class="receberdate"></p>
+
+			<div class="ipts">
+
+			<input oninput="addItemsCodBarra(this)" class="inputTxt1" type="text" id="new-todo" placeholder="Digite ou pistole o codigo de barras">
+			<button class="btAdd" id="add-todo">Salvar</button>
+			<div class="iconpdf">
+				<img class="btpdf2" src = "imgs/icondPdf.png" width="40px">
+				<p class="txtpdf" >Gerar PDF da lista</p>
+			</div>
+
+			<div class="iconnCopiar">
+
+				<img class="btcopiar2" src = "imgs/iconCopiar.png" width="40px">
+				<p class="txtpdf">Copiar lista</p>
+
+			</div>
+
+			</div>
+		
+			</div>
+		
+			<div class="inputsFiltro">
+		
+			
+			<input class="inputfilter" type="text" id="filter-todo" placeholder="Filtrar Items">
+			<button class="btDeleteTodos" id="delete-completed">Apagar items marcados <p class="receberMarcados"></p> </button>
+		
+			</div>
+
+	</div>
+
+	<ul class="receberItemS"  id="todo-list"></ul>
+
+	<div>
+
+
+
+	</div>
+
+	</section>
+
+
+	<section class="box-lista2">
+
+
+		<h1>Lista de Eticos</h1>
+	
+		<div class="inputs">
+	
+			<div class="inputs1">
+				
+				<p class="receberdate2"></p>
+	
+				<div class="ipts">
+	
+				<input  oninput="addItemsCodBarra2(this)" class="inputTxt1" type="text" id="tarefa" placeholder="Digite ou pistole o codigo de barras">
+				<button class="btAdd" id="adicionar">Salvar</button>
+				<div class="iconpdf">
+					<img class="btpdf3" src = "imgs/icondPdf.png" width="40px">
+					<p class="txtpdf">Gerar PDF da lista</p>
+				</div>
+
+				<div class="iconnCopiar">
+
+					<img class="btcopiar" src = "imgs/iconCopiar.png" width="40px">
+					<p class="txtpdf4">Copiar lista</p>
+
+				</div>
+	
+				</div>
+			
+				</div>
+			
+				<div class="inputsFiltro">
+			
+				
+				<input class="inputfilter" type="text" id="filtro" placeholder="Filtrar Items">
+				<button class="btDeleteTodos" id="deletar-concluidas">Apagar items marcados <p class="receberMarcados"></p> </button>
+			
+				</div>
+	
+		</div>
+	
+		<ul class="receberItemS"  id="lista-tarefas"></ul>
+	
+		<div>
+	
+	
+	
+		</div>
+	
+		</section>
+
+
+		<div class="rodape">
+
+			<div class="textro">
+
+				<p>Farmacia do Trabalhador-</p>
+				<p>Maraial-pe</p>
+
+			</div>
+
+			<div class="navegaçao">
+
+				<img src = "imgs/iconGmail.png" width="20px">
+				<p>Nunesglaudson235@gmail.com</p>
+
+			</div>
+
+		</div>
+	
+
+
+</div>
+
+	<script src="scripts/listaSimi.js"></script>
+	<script src="scripts/listaEticos.js"></script>
+	<script src = "scripts/rotas.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	
+</body>
+</html>

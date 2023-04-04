@@ -3,18 +3,34 @@ const listaSimilar = document.querySelector('.box-lista');
 const listaEticos = document.querySelector('.box-lista2');
 const btSimilar = document.querySelector('#btListaS');
 const btEtico = document.querySelector('#btlistaE');
+const ContainerVeri = document.querySelector('.container-verificacao');
+const TelaOpcoes = document.querySelector('.opcoes');
+const TelaMods = document.querySelector('.mods');
+const cabecalho = document.querySelector('.cabecalho')
+
+const btVeri = document.querySelector('#btVerif');
+const inputAtivi = document.querySelector('#inputVerifi');
+const inputNL = document.querySelector('#inputNomeLoja')
+const BtNloja = document.querySelector('#btSalvarNomeL');
+const TelaCadastro = document.querySelector('.cadastroDECOD')
+
+btVeri.addEventListener('click', ()=> VerificarCodDeAtivacao());
+BtNloja.addEventListener('click', ()=> InserirNomeDaLoja())
+
 
 
 const btcads = document.querySelector("#btCadastro");
 
+btcads.addEventListener("click", ()=> TelaCadatro());
+
 btSimilar.addEventListener('click', ()=> abrirTelaSimi());
 btEtico.addEventListener('click', ()=> abrirTelaEtico());
-btcads.addEventListener('click', ()=> Indsiponivel());
 
 function abrirTelaSimi(){
 
     listaSimilar.style.display = 'flex';
     listaEticos.style.display = 'none';
+    TelaCadastro.style.display = 'none'
 }
 
 
@@ -22,6 +38,7 @@ function abrirTelaEtico(){
 
     listaSimilar.style.display = 'none';
     listaEticos.style.display = 'flex';
+    TelaCadastro.style.display = 'none'
 }
 
 
@@ -32,13 +49,118 @@ function Indsiponivel(){
 }
 
 
+let cod = 253558;
+
+function VerificarCodDeAtivacao(){
 
 
 
+const txtVer = inputAtivi.value;
+
+if(txtVer == cod){
+
+    setTimeout(()=>{
+    
+    localStorage.setItem('SavaCod', JSON.stringify(cod));
+    TelaOpcoes.style.display = 'none';
+    TelaMods.style.display ='flex';
+    
+    },2000)
+
+}else{
+
+    swal("Codigo Invalido", 'Digite Novamente')
+    txtVer.value = " ";
+}
 
 
+}
+
+const NomeLoja = document.querySelector('.NomeLoja');
+const NomeLoja2 = document.querySelector('.NomeLoja2');
 
 
+function InserirNomeDaLoja(){
+
+    const TxtNameLoj = inputNL.value;
+
+    NomeLoja.innerHTML = `${TxtNameLoj}`;
+    NomeLoja.innerHTML = `${TxtNameLoj}`;
+    localStorage.setItem('NomeLoja', JSON.stringify(TxtNameLoj));
+    CarregandoDADOSLOCAL();
+    VerificandoDadosDeAtivaçao();
+
+}
+
+
+function CarregandoDADOSLOCAL(){
+
+    const saveNomeLoja = JSON.parse(localStorage.getItem('NomeLoja'));
+
+    if(saveNomeLoja){
+
+        NomeLoja.innerHTML = `${saveNomeLoja}`;
+        NomeLoja2.innerHTML = `${saveNomeLoja}`;
+    }
+
+}
+
+
+function VerificandoDadosDeAtivaçao(){
+
+    const saveCod = localStorage.getItem('SavaCod');
+    const saveNLoja = JSON.parse(localStorage.getItem('NomeLoja'));
+
+    if(saveCod || saveNLoja){
+
+        ContainerVeri.style.display = 'none';
+        listaSimilar.style.display = 'flex';
+        cabecalho.style.display = 'flex';
+        NomeLoja.innerHTML = `${saveNLoja}`
+
+
+    }
+
+}
+
+function TelaCadatro(){
+
+    listaEticos.style.display = 'none';
+    listaSimilar.style.display = 'none';
+    TelaCadastro.style.display = 'flex';
+    swal("O Sistema ja esta com 242 codigos de barras salvos, incluindo medicamentos eticos e similares", 'Use esta opçâo para cadastrar medicamentos que ainda nâo estâo cadastrados')
+    
+
+}
+
+const BtsCod = document.querySelector('#btSalvarCod');
+const input50 = document.querySelector('#input050');
+const input55 = document.querySelector('#input055');
+
+BtsCod.addEventListener('click', ()=> cadastroNewCodBarra());
+
+function cadastroNewCodBarra(){
+
+    const nomeReme = input50.value;
+    const CODb = input55.value;
+
+    if(nomeReme == '' || CODb == ''){
+
+        swal("Preencha o input")
+        return
+    }else
+
+    codBarras.push({nome: nomeReme, cod:CODb});
+
+    setTimeout(()=>{
+
+        swal(`${nomeReme}` +" Foi cadastrado com sucesso");
+
+    },1000)
+
+}
+
+VerificandoDadosDeAtivaçao();
 
 
 // codigos de baras
@@ -289,3 +411,4 @@ const codBarras = [
     {nome: 'HIPOGLOS AMÊNDOAS', cod:7891010249953},
     {nome: 'GLIFAGE XR 500MG', cod:7891721201806},
 ]
+

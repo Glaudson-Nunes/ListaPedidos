@@ -6,16 +6,19 @@ const btEtico = document.querySelector('#btlistaE');
 const ContainerVeri = document.querySelector('.container-verificacao');
 const TelaOpcoes = document.querySelector('.opcoes');
 const TelaMods = document.querySelector('.mods');
+const TelaIa = document.querySelector('.assistente');
 const cabecalho = document.querySelector('.cabecalho')
 
 const btVeri = document.querySelector('#btVerif');
 const inputAtivi = document.querySelector('#inputVerifi');
 const inputNL = document.querySelector('#inputNomeLoja')
 const BtNloja = document.querySelector('#btSalvarNomeL');
+const BtIA = document.querySelector('#btIA');
 const TelaCadastro = document.querySelector('.cadastroDECOD')
 
 btVeri.addEventListener('click', ()=> VerificarCodDeAtivacao());
 BtNloja.addEventListener('click', ()=> InserirNomeDaLoja())
+BtIA.addEventListener('click', ()=> abrirTelaIa());
 
 
 
@@ -31,6 +34,8 @@ function abrirTelaSimi(){
     listaSimilar.style.display = 'flex';
     listaEticos.style.display = 'none';
     TelaCadastro.style.display = 'none'
+    TelaIa.style.display = 'none';
+
 }
 
 
@@ -39,6 +44,15 @@ function abrirTelaEtico(){
     listaSimilar.style.display = 'none';
     listaEticos.style.display = 'flex';
     TelaCadastro.style.display = 'none'
+    TelaIa.style.display = 'none';
+}
+
+function abrirTelaIa(){
+
+    TelaIa.style.display = 'flex';
+    listaEticos.style.display = 'none';
+    listaSimilar.style.display = 'none';
+    TelaCadastro.style.display = 'none';
 }
 
 
@@ -128,7 +142,8 @@ function TelaCadatro(){
     listaEticos.style.display = 'none';
     listaSimilar.style.display = 'none';
     TelaCadastro.style.display = 'flex';
-    swal("O Sistema ja esta com 242 codigos de barras salvos, incluindo medicamentos eticos e similares", 'Use esta opçâo para cadastrar medicamentos que ainda nâo estâo cadastrados')
+    TelaIa.style.display = 'none';
+    swal( `O Sistema ja esta com ${codBarras.length} codigos de barras salvos, incluindo medicamentos eticos e similares`, 'Use esta opçâo para cadastrar medicamentos que ainda nâo estâo cadastrados')
     
 
 }

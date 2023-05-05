@@ -126,6 +126,16 @@ function addItemsCodBarra2(event){
 
 }
 
+
+const TotalItems2 = document.querySelector('.totalItems2');
+TotalItems2.textContent = tarefas.length;
+
+function atualizarTotal2() {
+  TotalItems2.textContent = `Total de Items: ${tarefas.length}`;
+  }
+
+  setInterval(atualizarTotal2, 1000);
+
 const btpdfE = document.querySelector(".btpdf3");
 
 btpdfE.addEventListener('click', ()=> gerarPDFti());

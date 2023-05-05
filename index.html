@@ -30,6 +30,7 @@
 
 				<li id = "btListaS" class="liMenu">Similares <img src = "imgs/icons8.png" width="25px">  </li>
 				<li id = "btlistaE" class="liMenu">Eticos 	<img src = "imgs/icons8.png" width="25px"></li>
+				<li id = 'btIA'  class="liMenu"> Inteligência Artificial <img src = "imgs/icons8-bot-64.png" width="45px"> <img class="iconConetado1" src="imgs/icons8-conectado-64.png" width="35px">  </li>
 				<li id = "btCadastro" class="liMenu">Cadastrar Codigos de Barra 	<img src = "imgs/iconCod.png" width="25px"></li>
 			
 			</ul>
@@ -38,7 +39,7 @@
 
 		<div class="data">
 
-			<p class="rcbd2">data</p>
+			<p class="rcbd2"></p>
 
 		</div>
 
@@ -55,6 +56,41 @@
 
 	</section>
 
+
+	<section class="I.A">
+
+		<div class="assistente">
+
+			<img src="imgs/icons8-bot-64.png" width="80px">
+			<h2>Ola eu sou o seu assistente virtual, uma inteligência artificial criada para automatizar e ajudar no seu trabalho</h2>
+			<h4>Você pode programar uma data no input abaixo para que assim eu possa atualizar as listas automaticamente, é so escolher uma data e eu mesmo atualizo as listas</h4>
+
+			<div class="inputsIa">
+				<h1>Porgramar data</h1>
+				<p>Programe uma data para que o seu assistente virtual atualize as listas</p>
+
+				<input class="minha-data" type="date">
+				<button id = 'minha-data'  class="btAssi">Ativar Assistente Virtual</button>
+				<button class="btAssi2">Desativar Assistente Virtual</button>
+				<p class="InforData"></p>
+
+			</div>
+
+		</div>
+
+		<div class="textIA">
+
+			<img src="imgs/icons8-bot-64.png" width="70px">
+
+			<h1>O seu assistente virtual atualizou a sua lista de Eticos e Similares, mas lembre-se de conferir para que nâo haja erros</h1>
+			
+			<button id = 'btEntendi' >OK ja entendi</button>
+			<button id = 'btLembrete'>Ativar Lembrete</button>
+
+		</div>
+
+	</section>
+
 	<section class="box-lista">
 
 
@@ -64,20 +100,20 @@
 
 		<div class="inputs1">
 			
-			<p class="receberdate"></p>
+			<p class="receberdate"> </p>
 
 			<div class="ipts">
 
 			<input oninput="addItemsCodBarra(this)" class="inputTxt1" type="text" id="new-todo" placeholder="Digite ou pistole o codigo de barras">
-			<button class="btAdd" id="add-todo">Salvar</button>
+			<button class="btAdd" id="add-todo">Add <img src="imgs/icons8-mais-50.png" width="22px"> </button>
 			<div class="iconpdf">
-				<img class="btpdf2" src = "imgs/icondPdf.png" width="40px">
+				<img class="btpdf2" src = "imgs/icondPdf.png" width="35px">
 				<p class="txtpdf" >Gerar PDF da lista</p>
 			</div>
 
 			<div class="iconnCopiar">
 
-				<img class="btcopiar2" src = "imgs/iconCopiar.png" width="40px">
+				<img class="btcopiar2" src = "imgs/iconCopiar.png" width="35px">
 				<p class="txtpdf">Copiar lista</p>
 
 			</div>
@@ -89,14 +125,15 @@
 			<div class="inputsFiltro">
 		
 			
-			<input class="inputfilter" type="text" id="filter-todo" placeholder="Filtrar Items">
-			<button class="btDeleteTodos" id="delete-completed">Apagar items marcados <p class="receberMarcados"></p> </button>
+			<input  class="inputfilter" type="text" id="filter-todo" placeholder="Pesquisar Items">
+			<button class="btDeleteTodos" id="delete-completed">Apagar items marcados <img src="imgs/icons8-lixeira-cheia-50.png" width="25px"> <p class="receberMarcados"></p> </button>
+			
 		
 			</div>
 
 	</div>
 
-	<ul class="receberItemS"  id="todo-list"></ul>
+	<ul class="receberItemS"  id="todo-list"></ul> <p class="totalItems"</p>
 
 	<div>
 
@@ -121,15 +158,15 @@
 				<div class="ipts">
 	
 				<input  oninput="addItemsCodBarra2(this)" class="inputTxt1" type="text" id="tarefa" placeholder="Digite ou pistole o codigo de barras">
-				<button class="btAdd" id="adicionar">Salvar</button>
+				<button class="btAdd" id="adicionar">Add <img src="imgs/icons8-mais-50.png" width="22px"> </button>
 				<div class="iconpdf">
-					<img class="btpdf3" src = "imgs/icondPdf.png" width="40px">
+					<img class="btpdf3" src = "imgs/icondPdf.png" width="35px">
 					<p class="txtpdf">Gerar PDF da lista</p>
 				</div>
 
 				<div class="iconnCopiar">
 
-					<img class="btcopiar" src = "imgs/iconCopiar.png" width="40px">
+					<img class="btcopiar" src = "imgs/iconCopiar.png" width="35px">
 					<p class="txtpdf4">Copiar lista</p>
 
 				</div>
@@ -141,14 +178,14 @@
 				<div class="inputsFiltro">
 			
 				
-				<input class="inputfilter" type="text" id="filtro" placeholder="Filtrar Items">
-				<button class="btDeleteTodos" id="deletar-concluidas">Apagar items marcados <p class="receberMarcados"></p> </button>
+				<input class="inputfilter" type="text" id="filtro" placeholder="Pesquisar Items">
+				<button class="btDeleteTodos" id="deletar-concluidas">Apagar items marcados <img src="imgs/icons8-lixeira-cheia-50.png" width="25px"> <p class="receberMarcados"></p> </button>
 			
 				</div>
 	
 		</div>
 	
-		<ul class="receberItemS"  id="lista-tarefas"></ul>
+		<ul class="receberItemS"  id="lista-tarefas"></ul>  <p class="totalItems2"</p></p>
 	
 		<div>
 	
@@ -159,23 +196,23 @@
 		</section>
 
 
-		<div class="rodape">
+			<!-- <div class="rodape">
 
-			<div class="textro">
+				<div class="textro">
 
-				<p>Farmacia do Trabalhador-</p>
-				<p class="NomeLoja2"></p>
+					<p>Farmacia do Trabalhador-</p>
+					<p class="NomeLoja2"></p>
 
-			</div>
+				</div>
 
-			<div class="navegaçao">
+				<div class="navegaçao">
 
-				<img src = "imgs/iconGmail.png" width="20px">
-				<p>Nunesglaudson235@gmail.com</p>
+					<img src = "imgs/iconGmail.png" width="20px">
+					<p>Nunesglaudson235@gmail.com</p>
 
-			</div>
+				</div>
 
-		</div>
+			</div> -->
 
 
 		<div class="container-verificacao">
@@ -207,6 +244,8 @@
 	<script src="scripts/listaEticos.js"></script>
 	<script src = "scripts/rotas.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="scripts/IA.js"></script>
+	<script src="scripts/Push.IA.js"></script>
 	
 </body>
 </html>

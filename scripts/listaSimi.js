@@ -11,8 +11,10 @@ const IconLixeira = "https://cdn-icons-png.flaticon.com/512/7778/7778893.png";
 
 	const date = new Date();
 	let dia = date.getDay();
-	let mes = date.getMonth();
+	let mes = date.getMonth()+1;
 	let ano = date.getFullYear();
+
+	console.log(date)
 
 	
 
@@ -22,6 +24,8 @@ const IconLixeira = "https://cdn-icons-png.flaticon.com/512/7778/7778893.png";
 	let total = `Ultima atualizaçâo em: ${dia + '/'+mes+'/'+ano  + ' ' + ' As ' +horas + ':' +minutos}`;
 
 	receberdate.innerHTML = `${dia + '/'+mes+'/'+ano }`;
+
+	console.log(receberdate)
 
 	const desc =  `${dia + '/'+mes+'/'+ano }`;
 
@@ -170,6 +174,19 @@ function dateSalvo(){
 		date_horas.innerHTML = `${save01}`;
 	}
 }
+
+
+
+
+	const TotalItems = document.querySelector('.totalItems');
+	TotalItems.textContent = todos.length;
+
+function atualizarTotal() {
+		TotalItems.textContent = `Total de Items: ${todos.length}`;
+	  }
+
+	  setInterval(atualizarTotal, 1000);
+
 
 const btpdf2 = document.querySelector(".btpdf2");
 
